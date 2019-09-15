@@ -6,6 +6,7 @@ import Lindex from '@/components/Lindex'
 import Lcourse from '@/components/Lcourse'
 import Ljob from '@/components/Ljob'
 import Lscience from '@/components/Lscience'
+import detail from '@/components/detail'
 
 Vue.use(Router)
 
@@ -36,6 +37,12 @@ export default new Router({
       name:"Lscience",
       component:Lscience
     },
+     {
+      path:"/detail/:id",
+      name:"detail",
+      component:detail
+    },
+    
 
   ],
   mode:"history", //去掉url中# 号
