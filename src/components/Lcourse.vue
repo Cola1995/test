@@ -24,7 +24,7 @@
                   <div class="bottom clearfix">
                     <time class="time">{{ o.level }}</time>
                     <!-- <router-link :to="{name:'detail',params:{id:o.id}}">{{o.title}}</router-link> -->
-                    <el-button type="text" class="button">查看详情</el-button>
+                    <el-button type="text" class="button"><router-link :to="{name:'detail',params:{id:o.id}}">查看详情</router-link></el-button>
                   </div>
                 </div>
               </el-card>
