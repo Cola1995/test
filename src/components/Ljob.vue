@@ -7,8 +7,8 @@ export default {
     data(){
 
         return{
-
-
+        
+        
         }
     }
 }

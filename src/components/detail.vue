@@ -1,11 +1,12 @@
 <template>
   <div>
     <h1>课程详细页面</h1>
+    <p>{{this.$route.params.id}}</p>
     <p>{{detail.title}}</p>
     <p>口号:{{detail.slogon}}</p>
     <p>推荐课程:
         <ul>
-            <li v-for="(i,index) in detail.recommends"  :key=index>
+            <li v-for="(i,index) in detail.recommends"  :key=index @click="changedetail(i.id)">
                 {{i.title}}
             </li>
         </ul>
@@ -30,6 +31,7 @@ export default {
   data() {
     return {
       detail: {
+        id:null,
         title: null,
         why: null,
         slogon: null,
@@ -40,12 +42,13 @@ export default {
   },
   mounted() {
     // console.log(this.$route.params.id)\
-    this.initDeatil();
+    var cid = this.$route.params.id
+    this.initDeatil(cid);
   },
   methods: {
-    initDeatil() {
+    initDeatil(cid) {
       var that = this;
-      var cid = this.$route.params.id
+
       this.$axios
         .request({
           url: "http://127.0.0.1:8005/api/v1/course/"+cid+"/",
@@ -57,8 +60,13 @@ export default {
           that.detail = ret.data.data;
         })
         .catch(function(ret) {
-          //失败后执行函数
+          //失败后执行函数 
         });
+    },
+    changedetail(id){
+      // alert(id)
+      this.initDeatil(id)
+      this.$router.push({name:"detail",params:{id:id}}) //解决推荐课程路由切换问题
     }
   }
 };
