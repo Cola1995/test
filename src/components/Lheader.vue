@@ -7,6 +7,8 @@
   <el-menu-item index="2"><router-link to="/course">课程</router-link></el-menu-item>
   <el-menu-item index="3"><router-link to="/job">微职位</router-link></el-menu-item>
   <el-menu-item index="4"><router-link to="/lscience"><span>深科技</span></router-link></el-menu-item>
+    <el-menu-item index="5"><router-link to="/login">登录</router-link></el-menu-item>
+
 </el-menu>
 <div class="line"></div>
 

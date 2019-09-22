@@ -7,6 +7,9 @@ import Lcourse from '@/components/Lcourse'
 import Ljob from '@/components/Ljob'
 import Lscience from '@/components/Lscience'
 import detail from '@/components/detail'
+import Login from '@/components/Login'
+
+
 
 Vue.use(Router)
 
@@ -42,7 +45,11 @@ export default new Router({
       name:"detail",
       component:detail
     },
-    
+    {
+      path:"/login",
+      name:"Login",
+      component:Login
+    }
 
   ],
   mode:"history", //去掉url中# 号
