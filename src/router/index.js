@@ -12,7 +12,9 @@ import Login from '@/components/Login'
 
 
 Vue.use(Router)
-
+var course_detail = {
+  template:"<h1>课程详细</h1>"
+}
 export default new Router({
   routes: [
     // {
@@ -33,7 +35,10 @@ export default new Router({
     {
       path:"/job",
       name:"Ljob",
-      component:Ljob
+      component:Ljob,
+      meta:{
+        requireAuth:true,  //该路由需要权限验证
+      }
     },
     {
       path:"/lscience",
@@ -49,6 +54,10 @@ export default new Router({
       path:"/login",
       name:"Login",
       component:Login
+    },
+    {
+      path:"/course_detail",
+      component:course_detail
     }
 
   ],

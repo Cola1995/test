@@ -12,7 +12,15 @@ export default new Vuex.Store({
     state:{
         count:0,
         username:Cookie.get("username"),
-        token:Cookie.get("token")
+        token:Cookie.get("token"),
+        apilist:{
+            course:"http://127.0.0.1:8005/api/v1/coursesub_list/",
+            job:"http://127.0.0.1:8005/api/v2/job/",
+            auth:"http://127.0.0.1:8005/api/v2/auth/",
+            detail:"http://127.0.0.1:8005/api/v1/course/",
+            course_list:"http://127.0.0.1:8005/api/v2/course/"
+        }
+        
     },
     mutations:{
         saveToken:function(state,userInfo){

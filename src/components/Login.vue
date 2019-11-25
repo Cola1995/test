@@ -28,7 +28,7 @@ export default {
       var that = this;
       this.$axios
         .request({
-          url: "http://127.0.0.1:8005/api/v2/auth/",
+          url: this.$store.state.apilist.auth,
           method: "POST",
           data: {
             username: this.username,
@@ -53,6 +53,16 @@ export default {
             that.$store.state.token = ret.data.token; //设置token
             that.$store.state.username = that.username; //设置username 注意内层函数this要写that
            
+            var url = that.$route.query.redirect   //注意写法 route
+            // console.log(url)
+            if(url){
+              that.$router.push({path:url})
+            }else{
+
+              that.$router.push({path:"/"})
+            }
+
+
             // 执行mutations自定义方法
             that.$store.commit("saveToken", {
               token: ret.data.token,
@@ -64,6 +74,7 @@ export default {
           }
         })
         .catch(function(ret) {
+          that.$message.error("未知错误");
           //失败后执行函数
         });
     }

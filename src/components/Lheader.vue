@@ -43,6 +43,7 @@ export default {
       logout(){
         //退出函数，执行mutations清除token 函数
         this.$store.commit("clearToken")
+        this.$message("退出登陆");
       }
     },
     created:function(){
